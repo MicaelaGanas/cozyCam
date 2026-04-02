@@ -5,11 +5,11 @@
   "type": "module",
   "scripts": {
     "dev": "npm run dev:full",
-    "dev:web": "vite",
+    "dev:web": "node ./node_modules/vite/bin/vite.js",
     "dev:api": "node server/email-server.js",
     "dev:full": "concurrently \"npm run dev:web\" \"npm run dev:api\"",
-    "build": "vite build",
-    "preview": "vite preview"
+    "build": "node ./node_modules/vite/bin/vite.js build",
+    "preview": "node ./node_modules/vite/bin/vite.js preview"
   },
   "dependencies": {
     "@emailjs/browser": "^4.4.1",
