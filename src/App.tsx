@@ -149,7 +149,6 @@ const DEFAULT_FRAME_POSITIONS: FrameBox[] = [
 
 export default function App() {
   const videoRef = useRef<HTMLVideoElement | null>(null);
-  const sideVideoRef = useRef<HTMLVideoElement | null>(null);
   const cameraStreamRef = useRef<MediaStream | null>(null);
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
   const designWorkspaceRef = useRef<HTMLDivElement | null>(null);
@@ -349,10 +348,6 @@ export default function App() {
           videoRef.current.srcObject = stream;
           await videoRef.current.play();
         }
-        if (sideVideoRef.current) {
-          sideVideoRef.current.srcObject = stream;
-          await sideVideoRef.current.play();
-        }
 
         const trackDeviceId = selected.selectedDeviceId ?? stream.getVideoTracks()[0]?.getSettings().deviceId;
         if (trackDeviceId && trackDeviceId !== activeDeviceId) {
@@ -393,10 +388,6 @@ export default function App() {
         if (videoRef.current) {
           videoRef.current.srcObject = stream;
           await videoRef.current.play();
-        }
-        if (sideVideoRef.current) {
-          sideVideoRef.current.srcObject = stream;
-          await sideVideoRef.current.play();
         }
       } catch {
         // Camera setup effect will recover stream binding if needed.
@@ -1385,15 +1376,6 @@ export default function App() {
             </div>
 
             <aside className="capture-sidebar" aria-label="Photobooth capture controls">
-              <div className="capture-sidebar-camera">
-                <div className="sidebar-camera-card">
-                  <h2 className="sidebar-camera-label">Live camera</h2>
-                  <div className="sidebar-camera-view">
-                    <video ref={sideVideoRef} className="sidebar-camera-video" autoPlay muted playsInline />
-                  </div>
-                </div>
-              </div>
-
               <div className="capture-sidebar-session">
                 <div className="capture-sidebar-progress-label">
                   <span>Progress</span>

@@ -337,18 +337,6 @@ video {
   box-sizing: border-box;
 }
 
-@keyframes capture-live-pulse {
-  0%,
-  100% {
-    opacity: 1;
-    box-shadow: 0 0 0 0 rgba(107, 143, 122, 0.55);
-  }
-  50% {
-    opacity: 0.85;
-    box-shadow: 0 0 0 4px rgba(107, 143, 122, 0);
-  }
-}
-
 .capture-sidebar {
   container-type: size;
   container-name: capture-sidebar;
@@ -372,66 +360,6 @@ video {
   overscroll-behavior: contain;
   -webkit-overflow-scrolling: touch;
   color: var(--color-text);
-}
-
-.capture-sidebar-camera {
-  flex-shrink: 0;
-}
-
-.sidebar-camera-card {
-  padding: clamp(6px, 3cqmin, 10px);
-  border-radius: 12px;
-  background: rgba(255, 255, 255, 0.55);
-  border: 1px solid var(--color-ink-soft);
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.9);
-}
-
-.sidebar-camera-label {
-  margin: 0 0 clamp(4px, 1.5cqmin, 6px);
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  font-size: clamp(0.78rem, 1.2cqw + 0.55rem, 0.95rem);
-  font-weight: 800;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: var(--color-text);
-}
-
-.sidebar-camera-label::before {
-  content: '';
-  width: 7px;
-  height: 7px;
-  border-radius: 50%;
-  background: var(--theme-accent);
-  flex-shrink: 0;
-  animation: capture-live-pulse 2.2s ease-in-out infinite;
-}
-
-.sidebar-camera-view {
-  position: relative;
-  width: 100%;
-  height: 0;
-  padding-bottom: 56.25%;
-  min-height: 0;
-  border-radius: 10px;
-  overflow: hidden;
-  background: #3a3632;
-  border: 1px solid rgba(58, 51, 44, 0.2);
-  box-shadow: 0 8px 24px rgba(58, 51, 44, 0.12);
-}
-
-.sidebar-camera-video {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transform: scaleX(-1);
-  display: block;
-}
-
-.sidebar-camera-view .sidebar-camera-video {
-  position: absolute;
-  inset: 0;
 }
 
 .capture-sidebar-heading {
@@ -496,24 +424,26 @@ video {
   flex-shrink: 0;
   display: flex;
   flex-direction: column;
-  gap: clamp(4px, 1.8cqmin, 7px);
-  padding: clamp(6px, 2.5cqmin, 9px);
-  border-radius: 12px;
-  background: rgba(255, 255, 255, 0.5);
-  border: 1px solid var(--color-ink-soft);
+  gap: clamp(12px, 3cqmin, 18px);
+  padding: clamp(18px, 4.5cqmin, 28px);
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.55);
+  border: 1.5px solid var(--color-ink-soft);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.9);
+  min-height: clamp(140px, 28cqmin, 220px);
 }
 
 .capture-sidebar-progress-label {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 8px;
-  font-size: clamp(0.8rem, 0.9cqw + 0.62rem, 0.92rem);
+  gap: 10px;
+  font-size: clamp(0.95rem, 1.35cqw + 0.55rem, 1.12rem);
   font-weight: 800;
   text-transform: uppercase;
-  letter-spacing: 0.07em;
+  letter-spacing: 0.06em;
   color: var(--color-text);
-  opacity: 0.82;
+  opacity: 0.88;
 }
 
 .capture-sidebar-progress-count {
@@ -522,8 +452,8 @@ video {
 }
 
 .capture-sidebar .progress-bar.capture-sidebar-progress {
-  height: 5px;
-  margin: 0;
+  height: clamp(11px, 1.8cqw + 5px, 14px);
+  margin: 2px 0 0;
   max-width: none;
   width: 100%;
   border-radius: 999px;
@@ -536,22 +466,23 @@ video {
 }
 
 .capture-sidebar .side-countdown {
-  margin: 0;
-  min-height: clamp(44px, 10cqw + 28px, 56px);
-  padding: clamp(8px, 1.5cqw + 4px, 12px) clamp(10px, 2cqw + 6px, 14px);
-  border-radius: 11px;
-  border: 1px solid rgba(107, 143, 122, 0.35);
+  margin: 4px 0 0;
+  min-height: clamp(80px, 16cqw + 44px, 112px);
+  padding: clamp(18px, 3cqw + 10px, 26px) clamp(16px, 3cqw + 10px, 28px);
+  border-radius: 16px;
+  border: 2px solid rgba(107, 143, 122, 0.38);
   display: grid;
   place-items: center;
-  font-size: clamp(1.05rem, 2.2cqw + 0.55rem, 1.45rem);
+  font-size: clamp(1.45rem, 3.4cqw + 0.7rem, 2rem);
   font-weight: 800;
   font-variant-numeric: tabular-nums;
   color: var(--color-text);
-  background: linear-gradient(180deg, rgba(107, 143, 122, 0.14) 0%, rgba(255, 252, 248, 0.9) 100%);
+  background: linear-gradient(180deg, rgba(107, 143, 122, 0.16) 0%, rgba(255, 252, 248, 0.92) 100%);
   box-shadow:
-    inset 0 1px 0 rgba(255, 255, 255, 0.75),
-    0 6px 18px rgba(58, 51, 44, 0.06);
+    inset 0 1px 0 rgba(255, 255, 255, 0.8),
+    0 8px 22px rgba(58, 51, 44, 0.08);
   flex-shrink: 0;
+  line-height: 1.1;
 }
 
 .capture-sidebar-footer {
